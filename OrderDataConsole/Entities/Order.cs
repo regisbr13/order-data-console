@@ -21,6 +21,14 @@ namespace OrderDataConsole.Entities
             Client = client;
         }
 
+        public void AddItem(OrderItem item)
+        {
+            Items.Add(item);
+        }
 
+        public void RemoveItem(OrderItem item)
+        {
+            Items.Remove(item);
+        }
     }
 }
