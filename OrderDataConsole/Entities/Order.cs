@@ -30,5 +30,15 @@ namespace OrderDataConsole.Entities
         {
             Items.Remove(item);
         }
+
+        public double Total()
+        {
+            double total = 0.0;
+            foreach (OrderItem item in Items)
+            {
+                total += item.SubTotal();
+            }
+            return total;
+        }
     }
 }
