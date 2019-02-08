@@ -40,7 +40,9 @@ namespace OrderDataConsole
                 OrderItem item = new OrderItem(quantity, product);
                 order.AddItem(item);
             }
-            
+
+            Console.WriteLine("ORDER SUMMARY:");
+            Console.WriteLine(order);
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace OrderDataConsole.Entities
+﻿using System.Globalization;
+
+namespace OrderDataConsole.Entities
 {
     class Product
     {
@@ -13,6 +15,11 @@
         {
             Name = name;
             Prince = price;
+        }
+
+        public override string ToString()
+        {
+            return Name + ", $" + Prince.ToString("F2", CultureInfo.InvariantCulture);
         }
     }
 }

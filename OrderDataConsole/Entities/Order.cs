@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using OrderDataConsole.Entities.Enums;
+using System.Text;
+using System.Globalization;
 
 namespace OrderDataConsole.Entities
 {
@@ -39,6 +41,22 @@ namespace OrderDataConsole.Entities
                 total += item.SubTotal();
             }
             return total;
+        }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("Order Moment: " + Moment.ToString("dd/MM/yyyy HH:mm:ss"));
+            sb.AppendLine("Order Status: " + Status.ToString());
+            sb.AppendLine(Client.ToString());
+            sb.AppendLine("Order Items:");
+            foreach(OrderItem item in Items)
+            {
+                sb.AppendLine(item.ToString());
+            }
+            sb.Append("Total Price: $");
+            sb.Append(Total().ToString("F2", CultureInfo.InvariantCulture));
+            return sb.ToString();
         }
     }
 }

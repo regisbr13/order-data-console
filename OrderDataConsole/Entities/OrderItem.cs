@@ -1,4 +1,6 @@
-﻿namespace OrderDataConsole.Entities
+﻿using System.Globalization;
+
+namespace OrderDataConsole.Entities
 {
     class OrderItem
     {
@@ -18,6 +20,11 @@
         public double SubTotal()
         {
             return Quantity * Product.Prince;
+        }
+
+        public override string ToString()
+        {
+            return Product.ToString() + " Quantity: " + Quantity + ", Subtotal: $" + SubTotal().ToString("F2", CultureInfo.InvariantCulture);
         }
     }
 }
